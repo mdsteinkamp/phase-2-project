@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
 import NavBar from "./NavBar";
+import Home from "./Home"
 import Header from "./Header"
 import AddTrackForm from "./AddTrackForm";
 import TrackList from "./TrackList";
@@ -11,7 +12,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
       .then(resp => resp.json())
-      .then(tracks => console.log(tracks))
+      .then(tracks => setTracks(tracks))
     }, [])
 
   return (
@@ -20,7 +21,8 @@ function App() {
       <Header />
       <div className="container">
         <Routes>
-          <Route path="/tracks" element={<TrackList />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
           <Route path="/addtrack" element={<AddTrackForm />} />
         </Routes>
       </div>
