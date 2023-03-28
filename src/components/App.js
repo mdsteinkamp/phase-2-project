@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
-import { AppContainer } from "./styles/App.Container.styled";
+import { styledAppContainer } from "./styles/App.Container.styled";
+import { ThemeProvider } from "styled-components";
 import NavBar from "./NavBar";
-import Home from "./Home"
 import Header from "./Header"
 import AddTrackForm from "./AddTrackForm";
 import TrackList from "./TrackList";
+
+const lightTheme = {
+  colors: {
+    header: "#fff",
+    textColor: "#000"
+  }
+}
+
+const darkTheme = {
+  colors: {
+    header: "#A020F0",
+    textColor: "#fff",
+  }
+}
+
+
 
 function App() {
   const [tracks, setTracks] = useState([])
@@ -17,17 +33,18 @@ function App() {
     }, [])
 
   return (
-    <>
-      <NavBar />
-      <Header />
-      <AppContainer>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
-          <Route path="/addtrack" element={<AddTrackForm />} />
-        </Routes>
-      </AppContainer>
-    </>
+    <ThemeProvider theme={lightTheme}>
+      <>
+        <NavBar />
+        <styledAppContainer>
+          <Routes>
+            <Route path="/" element={<Header />} />
+            <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
+            <Route path="/addtrack" element={<AddTrackForm />} />
+          </Routes>
+        </styledAppContainer>
+      </>
+    </ThemeProvider>
   );
 }
 

@@ -5,13 +5,7 @@ export default function TrackList({ tracks }) {
     
     const trackCards = tracks.map(track => (
         <TrackCard 
-            key={track.id}
-            name={track.name}
-            artist={track.artist}
-            img={track.image}
-            mode={track.mode}
-            difficulty={track.difficulty}
-            completed={track.completed}
+            track={track}
         />           
     ))
 

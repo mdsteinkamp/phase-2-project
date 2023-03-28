@@ -1,14 +1,14 @@
 import { TrackCardContainer } from "./styles/TrackCard.Container.styled"
 
-export default function TrackCard({name, artist, img, mode, difficulty, completed }) {
+export default function TrackCard({ track }) {
   return(
     <TrackCardContainer>
-      <p>{name}</p>
-      <p>by {artist}</p>
-      <img src={img} alt={name} />
-      <p>key: {mode}</p>
+      <p>{track.name}</p>
+      <p>by {track.artist}</p>
+      <img src={track.image} alt={track.name} />
+      <p>key: {track.mode}</p>
       <div className="bottom">
-        <span>difficulty {difficulty}</span>
+        <span>difficulty {track.difficulty}</span>
         <form>Completed
           <input type="checkbox" id="completed"></input>
         </form>

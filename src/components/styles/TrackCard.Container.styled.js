@@ -14,5 +14,10 @@ export const TrackCardContainer = styled.div`
     justify-content: space-between;
   }
 
+  img {
+    display: block;
+    margin: auto;
+  }
+
 `
 

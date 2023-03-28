@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppContainer = styled.div`
+export const styledAppContainer = styled.div`
 
   display: flex;
   justify-content: center;
