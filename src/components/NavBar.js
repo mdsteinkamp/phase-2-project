@@ -1,16 +1,7 @@
 import React from "react";
 import ReactSwitch from "react-switch";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const NavBarContainer = styled.nav`
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  
-`
+import { NavBarContainer } from "./styles/NavBar.styled"
 
 export default function NavBar() {
   return (
