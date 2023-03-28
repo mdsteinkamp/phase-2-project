@@ -1,0 +1,31 @@
+{
+  "tracks": [
+    {
+      "id": 1,
+      "name": "Perpetual Burn",
+      "artist": "Jason Becker",
+      "image": "./public/images/perpetual_burn.jpg",
+      "key": "ALL OF THEM",
+      "difficulty": 5,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "name": "Tornado of Souls",
+      "artist": "Megadeth",
+      "image": "./public/images/rust_in_peace.jpg",
+      "key": "b minor",
+      "difficulty": 3,
+      "completed": true
+    }, 
+    {
+      "id": 3,
+      "name": "Ghost Prototype I",
+      "artist": "Scar Symmetry",
+      "image": "./public/images/holographic_universe",
+      "key": "g sharp minor, etc",
+      "difficulty": 4 ,
+      "completed": false
+    }
+  ]
+}
