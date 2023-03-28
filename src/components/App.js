@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
+import { AppContainer } from "./styles/App.Container.styled";
 import NavBar from "./NavBar";
 import Home from "./Home"
 import Header from "./Header"
@@ -19,13 +20,13 @@ function App() {
     <>
       <NavBar />
       <Header />
-      <div className="container">
+      <AppContainer>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
           <Route path="/addtrack" element={<AddTrackForm />} />
         </Routes>
-      </div>
+      </AppContainer>
     </>
   );
 }
