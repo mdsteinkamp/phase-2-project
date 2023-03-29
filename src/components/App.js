@@ -9,18 +9,21 @@ import TrackList from "./TrackList";
 
 const lightTheme = {
   colors: {
+    body: "#fff",
     header: "#fff",
-    textColor: "#000"
+    textColor: "#000",
+    nav: "#fff",
   }
 }
 
 const darkTheme = {
   colors: {
-    header: "#A020F0",
+    body: "#36454F",
+    header: "#36454F",
     textColor: "#fff",
+    nav: "#36454F"
   }
 }
-
 
 function App() {
   const [tracks, setTracks] = useState([])

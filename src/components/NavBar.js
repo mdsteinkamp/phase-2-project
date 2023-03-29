@@ -18,7 +18,7 @@ export default function NavBar({ theme, isDarkTheme, setTheme }) {
       <span><Link to="/tracks">My Tracks</Link></span>
       <span><Link to="/addtrack">Add a Track</Link></span>
       <span>
-        {theme === "light" ? "Light Mode" : "Dark Mode"}
+        {theme === "light" ? "Light Mode 😎" : "Dark Mode 🐱‍👤"}
         <ReactSwitch onChange={handleSwitch} 
         checked={theme === "light"}/>
       </span>

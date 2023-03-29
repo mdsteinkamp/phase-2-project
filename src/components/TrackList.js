@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledTrackList } from "./styles/TrackList.styled";
 import TrackCard from "./TrackCard";
 
 export default function TrackList({ tracks }) {
@@ -12,9 +13,9 @@ export default function TrackList({ tracks }) {
 
 
   return (
-    <div>
+    <StyledTrackList>
       <h4>Tracks</h4>
       <ul>{trackCards}</ul>
-    </div>
+    </StyledTrackList>
   )
 }

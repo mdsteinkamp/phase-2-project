@@ -5,4 +5,6 @@ export const NavBarContainer = styled.nav`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.nav};
+  color: ${({ theme }) => theme.colors.textColor}
 `
