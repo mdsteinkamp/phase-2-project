@@ -14,7 +14,7 @@ export default function TrackList({ tracks }) {
 
   return (
     <StyledTrackList>
-      <h4>Tracks</h4>
+      <h1>Tracks</h1>
       <ul>{trackCards}</ul>
     </StyledTrackList>
   )

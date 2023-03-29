@@ -5,9 +5,6 @@ import { NavBarContainer } from "./styles/NavBar.styled"
 
 export default function NavBar({ theme, isDarkTheme, setTheme }) {
 
-  console.log("in navbar", theme)
-  console.log("in navbar", isDarkTheme)
-
   function handleSwitch() {
     setTheme(isDarkTheme ? "light" : "dark")
   }
