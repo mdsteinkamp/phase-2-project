@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyledAddTrackForm } from "./styles/AddTrackForm.styled";
 
 export default function AddTrackForm() {
+  const [formData, setFormData] = useState({
+    track: "",
+    artist: "",
+    image: "",
+    mode: "",
+    difficulty: "", 
+  })
 
-  
+  function handleChange(e) {
+    const name = e.target.name
+    const value = e.target.value
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+  console.log(formData)
 
 
 
@@ -15,32 +31,37 @@ export default function AddTrackForm() {
           <input 
             type="text"
             name="track"
-            name="track"
             placeholder="Track..."
+            value={formData.track}
+            onChange={handleChange}
           />
           <input 
             type="text"
-            name="artist"
             name="artist"
             placeholder="Artist..."
+            value={formData.artist}
+            onChange={handleChange}
           />
           <input 
             type="text"
-            name="image"
             name="image"
             placeholder="Cover Image..."
+            value={formData.image}
+            onChange={handleChange}
           />
           <input 
             type="text"
-            name="mode"
             name="mode"
             placeholder="Key/Modes..."
+            value={formData.mode}
+            onChange={handleChange}
           />
           <input 
             type="text"
             name="difficulty"
-            name="difficulty"
             placeholder="Rate the Difficulty..."
+            value={formData.difficulty}
+            onChange={handleChange}
           />
           <button type="submit">Submit</button>
         </form>
