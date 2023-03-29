@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
-import { styledAppContainer } from "./styles/App.Container.styled";
+import { StyledAppContainer } from "./styles/App.Container.styled";
 import { ThemeProvider } from "styled-components";
 import NavBar from "./NavBar";
 import Header from "./Header"
@@ -22,9 +22,11 @@ const darkTheme = {
 }
 
 
-
 function App() {
   const [tracks, setTracks] = useState([])
+  const [theme, setTheme] = useState("light")
+  const isDarkTheme = theme === "dark"
+
 
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
@@ -33,16 +35,16 @@ function App() {
     }, [])
 
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <>
-        <NavBar />
-        <styledAppContainer>
+        <NavBar theme={theme} isDarkTheme={isDarkTheme} setTheme={setTheme}/>
+        <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
             <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
             <Route path="/addtrack" element={<AddTrackForm />} />
           </Routes>
-        </styledAppContainer>
+        </StyledAppContainer>
       </>
     </ThemeProvider>
   );
