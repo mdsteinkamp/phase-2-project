@@ -25,17 +25,20 @@ const darkTheme = {
   }
 }
 
+
 function App() {
   const [tracks, setTracks] = useState([])
   const [theme, setTheme] = useState("light")
   const isDarkTheme = theme === "dark"
-
-
+  
+  
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
-      .then(resp => resp.json())
-      .then(tracks => setTracks(tracks))
-    }, [])
+    .then(resp => resp.json())
+    .then(tracks => setTracks(tracks))
+  }, [])
+  
+  document.body.style = isDarkTheme ? `background: ${darkTheme.colors.body};` : `background: ${lightTheme.colors.body};`
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
