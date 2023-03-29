@@ -1,28 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledAddTrackForm } from "./styles/AddTrackForm.styled";
 
-export default function AddTrackForm() {
-  const [formData, setFormData] = useState({
-    track: "",
-    artist: "",
-    image: "",
-    mode: "",
-    difficulty: "", 
-  })
+export default function AddTrackForm( {formData, handleChange, handleSubmit}) {
 
-  function handleChange(e) {
-    const name = e.target.name
-    const value = e.target.value
-    setFormData({
-      ...formData,
-      [name]: value
-    })
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log(formData)
-  }
 
   return (
     <StyledAddTrackForm>

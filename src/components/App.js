@@ -30,6 +30,27 @@ function App() {
   const [tracks, setTracks] = useState([])
   const [theme, setTheme] = useState("light")
   const isDarkTheme = theme === "dark"
+  const [formData, setFormData] = useState({
+    track: "",
+    artist: "",
+    image: "",
+    mode: "",
+    difficulty: "", 
+  })
+
+  function handleChange(e) {
+    const name = e.target.name
+    const value = e.target.value
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(formData)
+  }
   
   
   useEffect(() => {
@@ -48,7 +69,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Header />} />
             <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
-            <Route path="/addtrack" element={<AddTrackForm />} />
+            <Route path="/addtrack" element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit}/>} />
           </Routes>
         </StyledAppContainer>
       </>
