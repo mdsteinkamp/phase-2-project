@@ -19,15 +19,16 @@ export default function AddTrackForm() {
     })
   }
 
-  console.log(formData)
-
-
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(formData)
+  }
 
   return (
     <StyledAddTrackForm>
       <h1>Add Track Form</h1>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input 
             type="text"
             name="track"
