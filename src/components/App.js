@@ -13,6 +13,7 @@ const lightTheme = {
     header: "#fff",
     textColor: "#000",
     nav: "#fff",
+    backgroundColor: "#7fffd4"
   }
 }
 
@@ -21,7 +22,8 @@ const darkTheme = {
     body: "#36454F",
     header: "#36454F",
     textColor: "#fff",
-    nav: "#36454F"
+    nav: "#36454F",
+    backgroundColor: "#2E3138"
   }
 }
 

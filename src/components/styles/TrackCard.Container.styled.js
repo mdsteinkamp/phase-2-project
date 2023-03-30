@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TrackCardContainer = styled.div`
   border-style: solid;
   border-color: black;
-  background-color: aquamarine;
+  background-color: ${({theme}) => theme.colors.backgroundColor};
 
   p {
     text-align: center;
