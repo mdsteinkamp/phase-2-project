@@ -17,14 +17,14 @@
       "mode": "b aeolian",
       "difficulty": 3,
       "completed": true
-    }, 
+    },
     {
       "id": 3,
       "name": "Ghost Prototype I",
       "artist": "Scar Symmetry",
       "image": "./images/holographic_universe.jpg",
       "mode": "g sharp aeolian, etc",
-      "difficulty": 4 ,
+      "difficulty": 4,
       "completed": false
     }
   ]

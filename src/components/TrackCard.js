@@ -8,7 +8,7 @@ export default function TrackCard({ track }) {
       <img src={track.image} alt={track.name} />
       <p>key: {track.mode}</p>
       <div className="bottom">
-        <span>difficulty {track.difficulty}</span>
+        <span>difficulty {"🎸".repeat(track.difficulty)}</span>
         <form>Completed
           <input type="checkbox" id="completed"></input>
         </form>

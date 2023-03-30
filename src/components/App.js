@@ -32,10 +32,10 @@ function App() {
   const isDarkTheme = theme === "dark"
   const [formData, setFormData] = useState({
     track: "",
-    artist: "",
-    image: "",
+    artist:"",
+    image:"",
     mode: "",
-    difficulty: "", 
+    difficulty: ""
   })
 
   function handleChange(e) {
@@ -43,13 +43,37 @@ function App() {
     const value = e.target.value
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     })
   }
 
-  function handleSubmit(e) {
+  function handleAddTrack(e) {
     e.preventDefault()
-    console.log(formData)
+    const newTrack = {
+      track: formData.track,
+      artist: formData.artist,
+      image: formData.image,
+      mode: formData.mode,
+      difficulty: formData.difficulty, 
+    }
+    fetch("http://localhost:3000/tracks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTrack)
+    })
+      .then(resp => resp.json())
+      .then(newTrack => {
+        setTracks([...tracks, newTrack])
+        setFormData({
+          track: "",
+          artist:"",
+          image:"",
+          mode: "",
+          difficulty: ""
+        })     
+      })
   }
   
   
@@ -69,7 +93,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Header />} />
             <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
-            <Route path="/addtrack" element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit}/>} />
+            <Route path="/addtrack" element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack}/>} />
           </Routes>
         </StyledAppContainer>
       </>

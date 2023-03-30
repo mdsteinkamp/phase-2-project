@@ -3,7 +3,6 @@ import { StyledAddTrackForm } from "./styles/AddTrackForm.styled";
 
 export default function AddTrackForm( {formData, handleChange, handleSubmit}) {
 
-
   return (
     <StyledAddTrackForm>
       <h1>Add Track Form</h1>
