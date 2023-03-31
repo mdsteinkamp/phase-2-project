@@ -31,6 +31,8 @@ const darkTheme = {
 function App() {
   const [tracks, setTracks] = useState([])
   const [theme, setTheme] = useState("light")
+  const [difficulty, setDifficulty] = useState("")
+  const [searchInput, setSearchInput] = useState("")
   const isDarkTheme = theme === "dark"
   const [formData, setFormData] = useState({
     track: "",
@@ -79,20 +81,20 @@ function App() {
   }
 
   function handleSelect(e) {
-    console.log(e.target.value)
-    console.log(tracks)
     const filteredTracks = tracks.sort((d1, d2) => {
       if (e.target.value === "easy") {
+        setDifficulty("easy")
         return ((d1.difficulty > d2.difficulty) ? 1 : (d1.difficulty < d2.difficulty) ? -1 :0)
       } else {
+        setDifficulty("hard")
         return ((d1.difficulty < d2.difficulty) ? 1 : (d1.difficulty > d2.difficulty) ? -1 :0)
       }
     })
     setTracks(filteredTracks)
   }
 
+  const shownTracks = searchInput !== "" ? tracks.filter(track => track.name.toUpperCase().includes(searchInput.toUpperCase())) : tracks
 
-  
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
     .then(resp => resp.json())
@@ -108,8 +110,11 @@ function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={tracks} onSelect={handleSelect}/>} />
-            <Route path="/addtrack" element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack}/>} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput}/>} />
+            <Route 
+              path="/addtrack" 
+              element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
+            />
           </Routes>
         </StyledAppContainer>
       </>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyledTrackList } from "./styles/TrackList.styled";
 import TrackCard from "./TrackCard";
 
-export default function TrackList({ tracks, onSelect }) {
+export default function TrackList({ tracks, onSelect, onSearch }) {
+  const [search, setSearch] = useState("")
 
   const trackCards = tracks.map(track => (
     <TrackCard 
@@ -11,16 +12,12 @@ export default function TrackList({ tracks, onSelect }) {
     />           
   ))
 
-  // function handleSelect(e) {
-  //   const filteredTracks = tracks.sort((d1, d2) => {
-  //     if (e.target.value === "easy") {
-  //       return ((d1.difficulty > d2.difficulty) ? 1 : (d1.difficulty < d2.difficulty) ? -1 :0)
-  //     } else {
-  //       return ((d1.difficulty < d2.difficulty) ? 1 : (d1.difficulty > d2.difficulty) ? -1 :0)
-  //     }
-  //   })
-  //   onSelect(filteredTracks)
-  // }
+  function handleSearch(e) {
+    e.preventDefault()
+    console.log(search)
+    onSearch(search)
+  }
+
 
 
   return (
@@ -34,6 +31,16 @@ export default function TrackList({ tracks, onSelect }) {
             <option value="hard">Hard</option>
           </select>
       </form>
+      <form onSubmit={handleSearch}>
+      <input
+        type="text"
+        id="search"
+        placeholder="Search Your Tracks..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button type="submit">Search</button>
+    </form>
       <ul>{trackCards}</ul>
     </StyledTrackList>
   )
