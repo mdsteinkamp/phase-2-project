@@ -77,7 +77,21 @@ function App() {
         })     
       })
   }
-  
+
+  function handleSelect(e) {
+    console.log(e.target.value)
+    console.log(tracks)
+    const filteredTracks = tracks.sort((d1, d2) => {
+      if (e.target.value === "easy") {
+        return ((d1.difficulty > d2.difficulty) ? 1 : (d1.difficulty < d2.difficulty) ? -1 :0)
+      } else {
+        return ((d1.difficulty < d2.difficulty) ? 1 : (d1.difficulty > d2.difficulty) ? -1 :0)
+      }
+    })
+    setTracks(filteredTracks)
+  }
+
+
   
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
@@ -94,7 +108,7 @@ function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={tracks}/>} />
+            <Route path="/tracks" element={<TrackList tracks={tracks} onSelect={handleSelect}/>} />
             <Route path="/addtrack" element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack}/>} />
           </Routes>
         </StyledAppContainer>
