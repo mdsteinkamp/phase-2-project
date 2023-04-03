@@ -1,12 +1,11 @@
 import { useState } from "react"
+import { Link, useParams } from "react-router-dom"
 import { TrackCardContainer } from "./styles/TrackCard.Container.styled"
 
 export default function TrackCard({ track, handleCompleteTrack }) {
   const [isChecked, setIsChecked] = useState(track.completed === false ? false : true)
 
-
-
-  function handleChecked(e) {
+  function handleChecked() {
     setIsChecked(!isChecked)
     fetch(`http://localhost:3000/tracks/${track.id}`, {
       method: "PATCH",
@@ -21,12 +20,13 @@ export default function TrackCard({ track, handleCompleteTrack }) {
       .then(updatedTrack => handleCompleteTrack(updatedTrack))
   }
 
-
   return(
     <TrackCardContainer>
       <p>{track.name}</p>
       <p>by {track.artist}</p>
-      <img src={track.image} alt={track.name} />
+      <Link to={`${track.id}`} >
+        <img src={track.image} alt={track.name} />
+      </Link>
       <p>key: {track.mode}</p>
       <div className="bottom">
         <span>difficulty {"🎸".repeat(track.difficulty)}</span>
@@ -40,6 +40,7 @@ export default function TrackCard({ track, handleCompleteTrack }) {
           ></input>
         </form>
       </div>
+
     </TrackCardContainer>
   )
 }

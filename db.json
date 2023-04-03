@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Perpetual Burn",
       "artist": "Jason Becker",
-      "image": "./images/perpetual_burn.jpg",
+      "image": "/images/perpetual_burn.jpg",
       "mode": "ALL OF THEM",
       "difficulty": 5,
       "completed": false
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Tornado of Souls",
       "artist": "Megadeth",
-      "image": "./images/rust_in_peace.jpg",
+      "image": "/images/rust_in_peace.jpg",
       "mode": "b aeolian",
       "difficulty": 3,
       "completed": false
@@ -22,7 +22,7 @@
       "id": 3,
       "name": "Ghost Prototype I",
       "artist": "Scar Symmetry",
-      "image": "./images/holographic_universe.jpg",
+      "image": "/images/holographic_universe.jpg",
       "mode": "g sharp aeolian, etc",
       "difficulty": 4,
       "completed": false

@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Header from "./Header"
 import AddTrackForm from "./AddTrackForm";
 import TrackList from "./TrackList";
+import TrackPage from "./TrackPage";
 
 const lightTheme = {
   colors: {
@@ -59,6 +60,7 @@ function App() {
       image: formData.image,
       mode: formData.mode,
       difficulty: formData.difficulty, 
+      completed: false
     }
     fetch("http://localhost:3000/tracks", {
       method: "POST",
@@ -79,10 +81,8 @@ function App() {
         })     
       })
   }
-
   
   function handleCompletedTrack(completedTrack) {
-    console.log("in app", completedTrack)
     const updatedTracks = tracks.map(track => {
       if (track.id === completedTrack.id) {
         return completedTrack
@@ -92,7 +92,6 @@ function App() {
     })
     setTracks(updatedTracks)
   }
-
 
   function handleSelect(e) {
     const filteredTracks = tracks.sort((d1, d2) => {
@@ -124,11 +123,12 @@ function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput} handleCompletedTrack={handleCompletedTrack}/>} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput} handleCompletedTrack={handleCompletedTrack} />} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
             />
+            <Route path="/tracks/:id" element={<TrackPage tracks={tracks} />} />
           </Routes>
         </StyledAppContainer>
       </>
@@ -137,6 +137,3 @@ function App() {
 }
 
 export default App;
-
-
-// const shownTracks = searchInput !== "" ? tracks.filter(track => track.name.toUpperCase().includes(searchInput.toUpperCase())) : tracks
