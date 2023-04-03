@@ -80,6 +80,20 @@ function App() {
       })
   }
 
+  
+  function handleCompletedTrack(completedTrack) {
+    console.log("in app", completedTrack)
+    const updatedTracks = tracks.map(track => {
+      if (track.id === completedTrack.id) {
+        return completedTrack
+      } else { 
+        return track
+      }
+    })
+    setTracks(updatedTracks)
+  }
+
+
   function handleSelect(e) {
     const filteredTracks = tracks.sort((d1, d2) => {
       if (e.target.value === "easy") {
@@ -93,7 +107,7 @@ function App() {
     setTracks(filteredTracks)
   }
 
-  const shownTracks = searchInput !== "" ? tracks.filter(track => track.name.toUpperCase().includes(searchInput.toUpperCase())) : tracks
+  const shownTracks = searchInput !== "" ? tracks.filter(track => Object.values(track).join(' ').toUpperCase().includes(searchInput.toUpperCase())) : tracks
 
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
@@ -110,7 +124,7 @@ function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput}/>} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput} handleCompletedTrack={handleCompletedTrack}/>} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
@@ -123,3 +137,6 @@ function App() {
 }
 
 export default App;
+
+
+// const shownTracks = searchInput !== "" ? tracks.filter(track => track.name.toUpperCase().includes(searchInput.toUpperCase())) : tracks

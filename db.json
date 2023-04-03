@@ -16,7 +16,7 @@
       "image": "./images/rust_in_peace.jpg",
       "mode": "b aeolian",
       "difficulty": 3,
-      "completed": true
+      "completed": false
     },
     {
       "id": 3,

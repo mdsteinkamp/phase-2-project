@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { StyledTrackList } from "./styles/TrackList.styled";
 import TrackCard from "./TrackCard";
 
-export default function TrackList({ tracks, onSelect, onSearch }) {
+export default function TrackList({ tracks, onSelect, onSearch, handleCompletedTrack }) {
   const [search, setSearch] = useState("")
 
   const trackCards = tracks.map(track => (
     <TrackCard 
       key={track.id}
       track={track}
+      handleCompleteTrack={handleCompleteTrack}
     />           
   ))
 
@@ -16,6 +17,10 @@ export default function TrackList({ tracks, onSelect, onSearch }) {
     e.preventDefault()
     console.log(search)
     onSearch(search)
+  }
+
+  function handleCompleteTrack(completedTrack) {
+    handleCompletedTrack(completedTrack)
   }
 
 
