@@ -31,7 +31,7 @@ const darkTheme = {
 
 export default function App() {
   const [tracks, setTracks] = useState([])
-  const [theme, setTheme] = useState("light")
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [difficulty, setDifficulty] = useState("")
   const [searchInput, setSearchInput] = useState("")
   const [formData, setFormData] = useState({
@@ -41,7 +41,6 @@ export default function App() {
     mode: "",
     difficulty: ""
   })
-  const isDarkTheme = theme === "dark"
 
   function handleChange(e) {
     const name = e.target.name
@@ -119,7 +118,7 @@ export default function App() {
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <>
-        <NavBar theme={theme} isDarkTheme={isDarkTheme} setTheme={setTheme}/>
+        <NavBar theme={isDarkTheme} setTheme={setIsDarkTheme}/>
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
