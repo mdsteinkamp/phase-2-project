@@ -29,12 +29,11 @@ const darkTheme = {
 }
 
 
-function App() {
+export default function App() {
   const [tracks, setTracks] = useState([])
   const [theme, setTheme] = useState("light")
   const [difficulty, setDifficulty] = useState("")
   const [searchInput, setSearchInput] = useState("")
-  const isDarkTheme = theme === "dark"
   const [formData, setFormData] = useState({
     track: "",
     artist:"",
@@ -42,6 +41,7 @@ function App() {
     mode: "",
     difficulty: ""
   })
+  const isDarkTheme = theme === "dark"
 
   function handleChange(e) {
     const name = e.target.name
@@ -135,5 +135,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
