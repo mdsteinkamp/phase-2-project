@@ -1,6 +1,6 @@
 import React from "react";
 import ReactSwitch from "react-switch";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { StyledNavBar } from "./styles/NavBar.styled"
 
 export default function NavBar({ theme, setTheme }) {
@@ -11,9 +11,36 @@ export default function NavBar({ theme, setTheme }) {
  
   return (
     <StyledNavBar>
-      <span><Link to="/">Home</Link></span>
-      <span><Link to="/tracks">My Tracks</Link></span>
-      <span><Link to="/addtrack">Add a Track</Link></span>
+      <span>
+        <NavLink 
+          to="/"
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'grey'}
+          }}
+          >
+            Home
+        </NavLink>
+      </span>
+      <span>
+        <NavLink 
+          to="/tracks"
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'grey'}
+          }}
+          >
+            My Tracks
+        </NavLink>
+      </span>
+      <span>
+        <NavLink 
+          to="/addtrack"
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'grey'}
+          }}
+          >
+            Add a Track
+        </NavLink>
+      </span>
       <span>
         {theme ? "Dark Mode 🐱‍👤" : "Light Mode 😎"}
         <ReactSwitch onChange={handleSwitch} checked={theme} />

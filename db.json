@@ -29,6 +29,16 @@
       "difficulty": 4,
       "embedUrl": "https://www.youtube.com/embed/GKnyvtzMRRA",
       "completed": false
+    },
+    {
+      "track": "Winter Madness",
+      "artist": "Wintersun",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/f8/Wintersun_cover.jpg",
+      "mode": "",
+      "embedUrl": "https://www.youtube.com/embed/3lrh5tV7aus",
+      "difficulty": "4",
+      "completed": false,
+      "id": 4
     }
   ]
 }

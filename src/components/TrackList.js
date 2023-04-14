@@ -14,8 +14,9 @@ export default function TrackList({ tracks, onSelect, onSearch, handleCompletedT
   ))
 
   function handleSearch(e) {
-    e.preventDefault()
-    console.log(search)
+    // e.preventDefault()
+    setSearch(e.target.value)
+    // console.log(search)
     onSearch(search)
   }
 
@@ -36,15 +37,15 @@ export default function TrackList({ tracks, onSelect, onSearch, handleCompletedT
             <option value="hard">Hard</option>
           </select>
       </form>
-      <form onSubmit={handleSearch}>
+      <form>
+      <h4>Search Your Tracks!</h4>
       <input
         type="text"
         id="search"
         placeholder="Search Your Tracks..."
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => handleSearch(e)}
       />
-      <button type="submit">Search</button>
     </form>
       <ul>{trackCards}</ul>
     </StyledTrackList>

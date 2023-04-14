@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import { StyledAppContainer } from "./styles/App.Container.styled";
 import { ThemeProvider } from "styled-components";
 import NavBar from "./NavBar";
@@ -42,6 +42,7 @@ export default function App() {
     embedUrl: "",
     difficulty: ""
   })
+  const navigate = useNavigate()
 
   function handleChange(e) {
     const name = e.target.name
@@ -81,9 +82,10 @@ export default function App() {
           embedUrl: "",
           difficulty: ""
         })     
+        navigate("/tracks")
       })
   }
-  
+
   function handleCompletedTrack(completedTrack) {
     const updatedTracks = tracks.map(track => {
       if (track.id === completedTrack.id) {
@@ -109,7 +111,7 @@ export default function App() {
   }
   
   function searchTracks(search) {
-    console.log(search)
+    setSearchInput(search)
   }
 
   const shownTracks = searchInput !== "" ? tracks.filter(track => Object.values(track).join(' ').toUpperCase().includes(searchInput.toUpperCase())) : tracks
