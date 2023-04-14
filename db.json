@@ -2,43 +2,30 @@
   "tracks": [
     {
       "id": 1,
-      "track": "Perpetual Burn",
+      "name": "Perpetual Burn",
       "artist": "Jason Becker",
-      "image": "/images/perpetual_burn.jpg",
+      "image": "./images/perpetual_burn.jpg",
       "mode": "ALL OF THEM",
       "difficulty": 5,
-      "embedUrl": "https://www.youtube.com/embed/amcgzUSbh4c",
       "completed": false
     },
     {
       "id": 2,
-      "track": "Tornado of Souls",
+      "name": "Tornado of Souls",
       "artist": "Megadeth",
-      "image": "/images/rust_in_peace.jpg",
+      "image": "./images/rust_in_peace.jpg",
       "mode": "b aeolian",
       "difficulty": 3,
-      "embedUrl": "https://www.youtube.com/embed/B-oU2xlViRQ",
       "completed": false
-    },
+    }, 
     {
       "id": 3,
-      "track": "Ghost Prototype I",
+      "name": "Ghost Prototype I",
       "artist": "Scar Symmetry",
-      "image": "/images/holographic_universe.jpg",
+      "image": "./images/holographic_universe.jpg",
       "mode": "g sharp aeolian, etc",
-      "difficulty": 4,
-      "embedUrl": "https://www.youtube.com/embed/GKnyvtzMRRA",
+      "difficulty": 4 ,
       "completed": false
-    },
-    {
-      "track": "Winter Madness",
-      "artist": "Wintersun",
-      "image": "https://upload.wikimedia.org/wikipedia/en/f/f8/Wintersun_cover.jpg",
-      "mode": "",
-      "embedUrl": "https://www.youtube.com/embed/3lrh5tV7aus",
-      "difficulty": "4",
-      "completed": false,
-      "id": 4
     }
   ]
 }

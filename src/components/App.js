@@ -97,6 +97,20 @@ export default function App() {
     setTracks(updatedTracks)
   }
 
+  function handleDelete(deletedTrack) {
+    fetch(`http://localhost:3000/tracks/${deletedTrack.id}`, {
+      method: "DELETE",
+    })
+      .then(resp => resp.json())
+      .then(() => handleDeleteTrack(deletedTrack))
+  }
+
+  function handleDeleteTrack(deletedTrack) {
+    const updatedTracks = tracks.filter(track => track.id != deletedTrack.id)
+    setTracks(updatedTracks)
+  }
+
+
   function handleSelect(e) {
     const filteredTracks = tracks.sort((d1, d2) => {
       if (e.target.value === "easy") {
@@ -131,7 +145,7 @@ export default function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} />} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 

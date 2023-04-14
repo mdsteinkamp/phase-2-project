@@ -2,8 +2,10 @@ import { useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { TrackCardContainer } from "./styles/TrackCard.Container.styled"
 
-export default function TrackCard({ track, handleCompleteTrack }) {
+export default function TrackCard({ track, handleCompleteTrack, onDelete }) {
   const [isChecked, setIsChecked] = useState(track.completed === false ? false : true)
+
+
 
   function handleChecked() {
     setIsChecked(!isChecked)
@@ -18,6 +20,10 @@ export default function TrackCard({ track, handleCompleteTrack }) {
     })
       .then(resp => resp.json())
       .then(updatedTrack => handleCompleteTrack(updatedTrack))
+  }
+
+  function handleDelete() {
+    onDelete(track)
   }
 
   return(
@@ -39,6 +45,7 @@ export default function TrackCard({ track, handleCompleteTrack }) {
             onChange={handleChecked}
           ></input>
         </form>
+        <button onClick={handleDelete}>Delete Track</button>
       </div>
 
     </TrackCardContainer>
