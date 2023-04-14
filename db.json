@@ -2,29 +2,32 @@
   "tracks": [
     {
       "id": 1,
-      "name": "Perpetual Burn",
+      "track": "Perpetual Burn",
       "artist": "Jason Becker",
       "image": "/images/perpetual_burn.jpg",
       "mode": "ALL OF THEM",
       "difficulty": 5,
+      "embedUrl": "https://www.youtube.com/embed/amcgzUSbh4c",
       "completed": false
     },
     {
       "id": 2,
-      "name": "Tornado of Souls",
+      "track": "Tornado of Souls",
       "artist": "Megadeth",
       "image": "/images/rust_in_peace.jpg",
       "mode": "b aeolian",
       "difficulty": 3,
+      "embedUrl": "https://www.youtube.com/embed/B-oU2xlViRQ",
       "completed": false
     },
     {
       "id": 3,
-      "name": "Ghost Prototype I",
+      "track": "Ghost Prototype I",
       "artist": "Scar Symmetry",
       "image": "/images/holographic_universe.jpg",
       "mode": "g sharp aeolian, etc",
       "difficulty": 4,
+      "embedUrl": "https://www.youtube.com/embed/GKnyvtzMRRA",
       "completed": false
     }
   ]

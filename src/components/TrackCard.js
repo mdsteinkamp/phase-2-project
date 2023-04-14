@@ -22,7 +22,7 @@ export default function TrackCard({ track, handleCompleteTrack }) {
 
   return(
     <TrackCardContainer>
-      <p>{track.name}</p>
+      <p>{track.track}</p>
       <p>by {track.artist}</p>
       <Link to={`${track.id}`} >
         <img src={track.image} alt={track.name} />

@@ -39,6 +39,7 @@ export default function App() {
     artist:"",
     image:"",
     mode: "",
+    embedUrl: "",
     difficulty: ""
   })
 
@@ -58,6 +59,7 @@ export default function App() {
       artist: formData.artist,
       image: formData.image,
       mode: formData.mode,
+      embedUrl: formData.embedUrl,
       difficulty: formData.difficulty, 
       completed: false
     }
@@ -76,6 +78,7 @@ export default function App() {
           artist:"",
           image:"",
           mode: "",
+          embedUrl: "",
           difficulty: ""
         })     
       })
@@ -104,6 +107,10 @@ export default function App() {
     })
     setTracks(filteredTracks)
   }
+  
+  function searchTracks(search) {
+    console.log(search)
+  }
 
   const shownTracks = searchInput !== "" ? tracks.filter(track => Object.values(track).join(' ').toUpperCase().includes(searchInput.toUpperCase())) : tracks
 
@@ -122,7 +129,7 @@ export default function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={setSearchInput} handleCompletedTrack={handleCompletedTrack} />} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} />} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
