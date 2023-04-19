@@ -21,7 +21,7 @@ So far the following are implemented:
 
 * Navigation Bar with links to pages
 
-* Landing page: Not much here
+* Landing page
 
 * Tracks List Page: List of all the uncompleted/learned tracks for the user. Each entry is clickable and redirects to specific page. Can search name, artist, & two input fields. Can sort by difficulty. 
 
