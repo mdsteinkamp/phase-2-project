@@ -1,4 +1,4 @@
-# Song Learning Tracking
+# Song Learning Tracker App
 This application allows the user to display a list of songs to learn on their instrument of choice - the folowing info is listed in a card for each song:
 
 * Track Name
@@ -8,8 +8,21 @@ This application allows the user to display a list of songs to learn on their in
 * Techniques used
 * User rated difficulty
 
+As a beginner with React I wanted to get some practice building a basic react app with some CSS styling. I used ```styled-components``` for CSS and ```react-switch``` for a light/dark mode switch. 
+
 ## Installation
 In node, run ```npm run server``` and in a second terminal tab run ```npm start``` to open the app in the browser
 
 ## Usage
-Enter requested info on AddTrack page, not youtube EMBED URLs must be used. The Tracks page will list all tracks being worked on, clickin on a clack will navigate to a specific track page with the youtube video to play along with. Checking the "Completed" box will move the track to the user's completed tracks list page. 
+
+So far the following are implemented:
+
+* Navigation Bar with links to pages
+
+* Landing page: Not much here
+
+* Tracks List Page: List of all the uncompleted/learned tracks for the user. Each entry is clickable and redirects to specific page. Can search name, artist, & two input fields. Can sort by difficulty. 
+
+* Completed Tracks List Page: List of the completed track cards
+
+* Add Track Form: Form to add a track to the Track List
