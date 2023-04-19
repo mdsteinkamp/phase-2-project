@@ -35,6 +35,7 @@ export default function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [difficulty, setDifficulty] = useState("")
   const [searchInput, setSearchInput] = useState("")
+  const [completedTracks, setCompletedTracks] = useState([])
   const [formData, setFormData] = useState({
     track: "",
     artist:"",
@@ -99,6 +100,7 @@ export default function App() {
       }
     })
     setTracks(updatedTracks)
+    setCompletedTracks(updatedTracks.filter(track => track.completd))
   }
 
   function handleDelete(deletedTrack) {
@@ -153,7 +155,7 @@ export default function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks.filter(track => !track.completd)} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks.filter(track => !track.completed)} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
