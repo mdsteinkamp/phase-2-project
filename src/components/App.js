@@ -40,6 +40,7 @@ export default function App() {
     artist:"",
     image:"",
     mode: "",
+    techniques: "",
     embedUrl: "",
     difficulty: ""
   })
@@ -61,6 +62,7 @@ export default function App() {
       artist: formData.artist,
       image: formData.image,
       mode: formData.mode,
+      techniques: formData.techniques,
       embedUrl: formData.embedUrl,
       difficulty: formData.difficulty, 
       completed: false
@@ -80,6 +82,7 @@ export default function App() {
           artist:"",
           image:"",
           mode: "",
+          techniques: "",
           embedUrl: "",
           difficulty: ""
         })     
@@ -129,14 +132,18 @@ export default function App() {
     setSearchInput(search)
   }
 
-  const shownTracks = searchInput !== "" ? tracks.filter(track => Object.values(track).join(' ').toUpperCase().includes(searchInput.toUpperCase())) : tracks
+  const shownTracks = searchInput !== "" ? tracks.filter(track => 
+    Object.values(track).join(' ').toLowerCase().includes(searchInput.toLowerCase())) : tracks
+
+    console.log(shownTracks)
 
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
     .then(resp => resp.json())
     .then(tracks => setTracks(tracks))
   }, [])
-  
+
+
   document.body.style = isDarkTheme ? `background: ${darkTheme.colors.body};` : `background: ${lightTheme.colors.body};`
 
   return (
@@ -146,12 +153,12 @@ export default function App() {
         <StyledAppContainer>
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="/tracks" element={<TrackList tracks={shownTracks} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
+            <Route path="/tracks" element={<TrackList tracks={shownTracks.filter(track => !track.completd)} onSelect={handleSelect} onSearch={searchTracks} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
             <Route 
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
             />
-            <Route path="/completedtracks" element={<CompletedTrackList />} />
+            <Route path="/completedtracks" element={<CompletedTrackList tracks={tracks.filter(track => track.completed)} handleCompletedTrack={handleCompletedTrack} onDelete={handleDelete}/>} />
             <Route path="/tracks/:id" element={<TrackPage tracks={tracks} />} />
           </Routes>
         </StyledAppContainer>

@@ -34,6 +34,7 @@ export default function TrackCard({ track, handleCompleteTrack, onDelete }) {
         <img src={track.image} alt={track.name} />
       </Link>
       <p>key: {track.mode}</p>
+      <p>Techniques: {track.techniques}</p>
       <div className="bottom">
         <span>difficulty {"🎸".repeat(track.difficulty)}</span>
         <form >Completed

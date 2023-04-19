@@ -38,6 +38,13 @@ export default function AddTrackForm( {formData, handleChange, handleSubmit}) {
           />
           <input 
             type="text"
+            name="techniques"
+            placeholder="Techniques..."
+            value={formData.techniques}
+            onChange={handleChange}
+          />
+          <input 
+            type="text"
             name="embedUrl"
             placeholder="Youtube Embed Link..."
             value={formData.embedUrl}
