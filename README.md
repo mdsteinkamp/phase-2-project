@@ -10,6 +10,8 @@ This application allows the user to display a list of songs to learn on their in
 
 As a beginner with React I wanted to get some practice building a basic react app with some CSS styling. I used ```styled-components``` for CSS and ```react-switch``` for a light/dark mode switch. 
 
+The db.json file is intialized with some track info for example purposes
+
 ## Installation
 In node, run ```npm run server``` and in a second terminal tab run ```npm start``` to open the app in the browser
 
