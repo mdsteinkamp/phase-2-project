@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTrackList = styled.div`
+export const StyledH4 = styled.h4`
   background-color: ${({ theme }) => theme.colors.header};
   color: ${({ theme }) => theme.colors.textColor}
 

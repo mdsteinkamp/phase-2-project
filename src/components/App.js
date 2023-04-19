@@ -7,6 +7,7 @@ import Header from "./Header"
 import AddTrackForm from "./AddTrackForm";
 import TrackList from "./TrackList";
 import TrackPage from "./TrackPage";
+import CompletedTrackList from "./CompletedTrackList";
 
 const lightTheme = {
   colors: {
@@ -150,6 +151,7 @@ export default function App() {
               path="/addtrack" 
               element={<AddTrackForm formData={formData} handleChange={handleChange} handleSubmit={handleAddTrack} />} 
             />
+            <Route path="/completedtracks" element={<CompletedTrackList />} />
             <Route path="/tracks/:id" element={<TrackPage tracks={tracks} />} />
           </Routes>
         </StyledAppContainer>

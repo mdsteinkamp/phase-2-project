@@ -33,6 +33,16 @@ export default function NavBar({ theme, setTheme }) {
       </span>
       <span>
         <NavLink 
+          to="/completedtracks"
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'grey'}
+          }}
+          >
+            Completed Tracks
+        </NavLink>
+      </span>
+      <span>
+        <NavLink 
           to="/addtrack"
           style={({ isActive }) => {
             return { color: isActive ? 'red' : 'grey'}

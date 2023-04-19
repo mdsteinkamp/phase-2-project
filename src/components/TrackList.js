@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyledTrackList } from "./styles/TrackList.styled";
 import TrackCard from "./TrackCard";
+import { StyledH4 } from "./styles/StyledH4.styled";
 
 export default function TrackList({ tracks, onSelect, onSearch, handleCompletedTrack, onDelete }) {
   const [search, setSearch] = useState("")
@@ -28,8 +29,6 @@ export default function TrackList({ tracks, onSelect, onSearch, handleCompletedT
     onDelete(deletedTrack)
   }
 
-
-
   return (
     <StyledTrackList>
       <h1>Tracks</h1>
@@ -42,7 +41,7 @@ export default function TrackList({ tracks, onSelect, onSearch, handleCompletedT
           </select>
       </form>
       <form>
-      <h4>Search Your Tracks!</h4>
+      <StyledH4>Search Your Tracks!</StyledH4>
       <input
         type="text"
         id="search"
