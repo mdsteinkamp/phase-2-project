@@ -1,12 +1,12 @@
 # Song Learning Tracking
 This application allows the user to display a list of songs to learn on their instrument of choice - the folowing info is listed in a card for each song:
 
--Track Name
--Artist Name
--Album Cover
--Musical Key
--Techniques used
--User rated difficulty
+* Track Name
+* Artist Name
+* Album Cover
+* Musical Key
+* Techniques used
+* User rated difficulty
 
 ## Installation
 In node, run ```npm run server``` and in a second terminal tab run ```npm start``` to open the app in the browser
