@@ -19,7 +19,6 @@ export default function TrackList({ tracks, onSelect, onSearch, handleCompletedT
     setSearch(e.target.value)
     onSearch(search)
   }
-  console.log(search)
 
   function handleCompleteTrack(completedTrack) {
     handleCompletedTrack(completedTrack)

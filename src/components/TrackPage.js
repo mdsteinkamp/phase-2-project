@@ -6,7 +6,6 @@ export default function TrackPage({ tracks }) {
   const { id } = useParams()
 
   const selectedTrack = tracks.find(track => track.id === parseInt(id))
-  console.log(selectedTrack)
 
   return (
     <TrackCardContainer>

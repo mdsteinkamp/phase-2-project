@@ -137,8 +137,6 @@ export default function App() {
   const shownTracks = searchInput !== "" ? tracks.filter(track => 
     Object.values(track).join(' ').toLowerCase().includes(searchInput.toLowerCase())) : tracks
 
-    console.log(shownTracks)
-
   useEffect(() => {
     fetch("http://localhost:3000/tracks")
     .then(resp => resp.json())
