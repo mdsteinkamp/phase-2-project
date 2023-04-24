@@ -100,7 +100,7 @@ export default function App() {
       }
     })
     setTracks(updatedTracks)
-    setCompletedTracks(updatedTracks.filter(track => track.completd))
+    setCompletedTracks(updatedTracks.filter(track => track.completed))
   }
 
   function handleDelete(deletedTrack) {
